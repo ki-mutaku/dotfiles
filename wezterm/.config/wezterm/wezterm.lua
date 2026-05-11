@@ -12,7 +12,7 @@ config.enable_kitty_graphics = true
 config.font = wezterm.font("Firge35Nerd Console")
 
 -- フォントサイズ
-config.font_size = 12.0
+config.font_size = 16.0
 
 -- IMEで日本語入力をする設定
 config.use_ime = true
