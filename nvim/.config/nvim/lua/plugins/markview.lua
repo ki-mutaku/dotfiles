@@ -13,5 +13,11 @@ return {
 		preview = {
 			enable = true,
 		},
+		markdown = {
+			list_items = {
+				indent_size = 2,
+				shift_width = 2,
+			},
+		},
 	},
 }

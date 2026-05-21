@@ -30,13 +30,14 @@ return {
 					if cmp.visible() then
 						cmp.select_next_item({ behavior = types.cmp.SelectBehavior.Insert })
 					elseif vim.bo.filetype == "markdown" then
-						local line = vim.api.nvim_get_current_line()
-						if line:match("^%s*[%-%*%+]%s*$") or line:match("^%s*%d+%.%s*$") then
-							vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-t>", true, false, true), "n", true)
-						else
-							fallback()
-						end
-					elseif luasnip.locally_jumpable(1) then
+					        local line = vim.api.nvim_get_current_line()
+					        if line:match("^%s*[%-%*%+]%s*$") or line:match("^%s*%d+%.%s*$") then
+					                vim.api.nvim_set_current_line("  " .. line)
+					                local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+					                vim.api.nvim_win_set_cursor(0, { row, col + 2 })
+					        else
+					                fallback()
+					        end					elseif luasnip.locally_jumpable(1) then
 						luasnip.jump(1)
 					else
 						fallback()
@@ -46,13 +47,18 @@ return {
 					if cmp.visible() then
 						cmp.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert })
 					elseif vim.bo.filetype == "markdown" then
-						local line = vim.api.nvim_get_current_line()
-						if line:match("^%s*[%-%*%+]%s*$") or line:match("^%s*%d+%.%s*$") then
-							vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-d>", true, false, true), "n", true)
-						else
-							fallback()
-						end
-					elseif luasnip.locally_jumpable(-1) then
+					        local line = vim.api.nvim_get_current_line()
+					        if line:match("^%s*[%-%*%+]%s*$") or line:match("^%s*%d+%.%s*$") then
+					                local spaces = line:match("^(%s*)")
+					                if #spaces > 0 then
+					                        local to_remove = math.min(#spaces, 2)
+					                        vim.api.nvim_set_current_line(line:sub(to_remove + 1))
+					                        local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+					                        vim.api.nvim_win_set_cursor(0, { row, math.max(0, col - to_remove) })
+					                end
+					        else
+					                fallback()
+					        end					elseif luasnip.locally_jumpable(-1) then
 						luasnip.jump(-1)
 					else
 						fallback()
