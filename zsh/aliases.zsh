@@ -13,6 +13,16 @@ abbr cat='bat --paging=never'
 # nvim
 abbr v='nvim'
 
+# nvim with uv venv (auto-detect .venv in current or parent directories)
+function uv-nvim() {
+  if uv run --no-sync true &>/dev/null 2>&1; then
+    uv run nvim "$@"
+  else
+    nvim "$@"
+  fi
+}
+abbr vv='uv-nvim'
+
 # google search
 function google() {
   local query=$(echo "$@" | sed 's/ /+/g')
