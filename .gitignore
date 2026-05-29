@@ -38,3 +38,6 @@ Temporary Items
 
 # lazy-nvim
 nvim/.config/nvim/lazy-lock.json
+
+# antigravity
+.antigravitycli
