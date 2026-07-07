@@ -61,15 +61,6 @@ config.colors = {
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
 
--- ウィンドウ枠右上に時刻を表示
-wezterm.on("update-right-status", function(window, pane)
-	local date_end_time = wezterm.strftime("%Y-%m-%d %H:%M:%S")
-	window:set_right_status(wezterm.format({
-		{ Attribute = { Underline = "Single" } },
-		{ Attribute = { Italic = true } },
-		{ Text = wezterm.nerdfonts.mdi_clock .. " " .. date_end_time },
-	}))
-end)
 -- アクティブタブと非アクティブタブの色をわかりやすく
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local background = "#5c6d74"
@@ -95,6 +86,14 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		{ Foreground = { Color = edge_foreground } },
 		{ Text = SOLID_RIGHT_ARROW },
 	}
+end)
+
+-- workspace
+wezterm.on("gui-startup", function()
+	local tab, pane, window = wezterm.mux.spawn_window({
+		workspace = "portfolio",
+		cwd = "~/projects/portfolio",
+	})
 end)
 
 -- キーバインド
