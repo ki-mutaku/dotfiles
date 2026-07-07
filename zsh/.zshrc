@@ -7,6 +7,13 @@ export PATH=/usr/local/bin:$PATH
 export ABBR_QUIET=1
 export EDITOR="nvim"
 export XDG_CONFIG_HOME=${HOME}/.config
+export GOPATH=/Users/tutaya/go  # GOPATHにすると決めた場所
+export PATH=$GOPATH/bin:$PATH
+if [[ -f /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+alias python="python3"
+alias pip="pip3"
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh_history     # 履歴を保存するファイル
@@ -105,22 +112,6 @@ if type brew &>/dev/null; then
 fi
 
 # <<< zsh-completions setting <<<
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/tutaya/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/tutaya/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/tutaya/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/tutaya/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
