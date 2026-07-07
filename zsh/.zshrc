@@ -173,3 +173,6 @@ export PHP_INI_SCAN_DIR="/Users/tutaya/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 # Added by Antigravity CLI installer
 export PATH="/Users/tutaya/.local/bin:$PATH"
 export PATH="/Users/tutaya/.local/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/tutaya/.antigravity-ide/antigravity-ide/bin:$PATH"

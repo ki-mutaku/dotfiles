@@ -18,7 +18,7 @@ config.font_size = 14.0
 config.use_ime = true
 
 -- 背景の透過
-config.window_background_opacity = 0.85
+-- config.window_background_opacity = 0.85
 
 -- ぼかし
 config.macos_window_background_blur = 20
