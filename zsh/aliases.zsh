@@ -31,8 +31,3 @@ function google() {
 
 # lazygit
 abbr -S -qq lg='lazygit'
-
-# pnpm
-abbr pd='pnpm dev'
-abbr pi='pnpm install'
-
