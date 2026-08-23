@@ -179,3 +179,6 @@ export PATH="/Users/tutaya/.antigravity-ide/antigravity-ide/bin:$PATH"
 
 # Pi
 export PATH="/Users/tutaya/.nodebrew/node/v25.8.2/bin:$PATH"
+
+# opencode
+export PATH=/Users/tutaya/.opencode/bin:$PATH
