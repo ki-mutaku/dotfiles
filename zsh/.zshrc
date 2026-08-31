@@ -14,6 +14,7 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 alias python="python3"
 alias pip="pip3"
+alias grep="ggrep"
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh_history     # 履歴を保存するファイル
