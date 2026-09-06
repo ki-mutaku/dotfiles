@@ -26,6 +26,9 @@ config.macos_window_background_blur = 20
 -- タブ関連の設定
 config.window_decorations = "RESIZE"
 
+-- mac標準のフルスクリーンを使わない
+config.native_macos_fullscreen_mode = true
+
 -- タブが1つの時にタブバーを隠す
 config.hide_tab_bar_if_only_one_tab = false
 
