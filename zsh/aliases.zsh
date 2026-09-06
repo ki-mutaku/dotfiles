@@ -8,7 +8,7 @@ abbr c='clear'
 abbr cc='clear &&'
 
 # cat
-abbr cat='bat --paging=never'
+abbr -f cat='bat --paging=never --plain'
 
 # nvim
 abbr v='nvim'
@@ -31,3 +31,6 @@ function google() {
 
 # lazygit
 abbr -S -qq lg='lazygit'
+
+# return to project root
+abbr -S proot='cd $(git rev-parse --show-toplevel)' >>/dev/null
