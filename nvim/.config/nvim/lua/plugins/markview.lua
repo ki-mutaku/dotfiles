@@ -15,8 +15,8 @@ return {
 		},
 		markdown = {
 			list_items = {
-				indent_size = 2,
-				shift_width = 2,
+				indent_size = 4,
+				shift_width = 4,
 			},
 		},
 	},
