@@ -126,9 +126,6 @@ esac
 # pnpm enid
 export PATH="$HOME/bin:$PATH"
 
-# Added by Antigravity
-export PATH="/Users/tutaya/.antigravity/antigravity/bin:$PATH"
-
 # コマンドが存在するか確認する関数
 _has() {
   type "$1" > /dev/null 2>&1
