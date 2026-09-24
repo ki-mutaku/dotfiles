@@ -12,9 +12,6 @@ export PATH=$GOPATH/bin:$PATH
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-alias python="python3"
-alias pip="pip3"
-alias grep="ggrep"
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh_history     # 履歴を保存するファイル

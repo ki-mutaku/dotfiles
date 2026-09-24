@@ -1,3 +1,6 @@
+# --------------------------
+# abbr zone
+# --------------------------
 # ls -> eza
 abbr ls='eza --icons --group-directories-first'
 abbr la='eza -lAG --icons --group-directories-first'
@@ -34,3 +37,11 @@ abbr -S -qq lg='lazygit'
 
 # return to project root
 abbr -S proot='cd $(git rev-parse --show-toplevel)' >>/dev/null
+
+# ------------------------------
+# alias zone
+# ------------------------------
+alias pi-learn='PI_CODING_AGENT_DIR="$HOME/.pi-learning" pi'
+alias python="python3"
+alias pip="pip3"
+alias grep="ggrep"
