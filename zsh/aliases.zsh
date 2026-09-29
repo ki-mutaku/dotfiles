@@ -11,7 +11,7 @@ abbr c='clear'
 abbr cc='clear &&'
 
 # cat
-abbr -f cat='bat --paging=never --plain'
+abbr cat='bat --paging=never --plain'
 
 # nvim
 abbr v='nvim'
