@@ -76,4 +76,3 @@ ln -sf ~/dotfiles/sheldon/.config/sheldon/plugins.toml ~/.config/sheldon/plugins
 mkdir -p ~/.hammerspoon
 ln -sfn ~/dotfiles/hammerspoon/.hammerspoon/Spoons ~/.hammerspoon/Spoons
 ln -sf ~/dotfiles/hammerspoon/.hammerspoon/init.lua ~/.hammerspoon/init.lua
-```
