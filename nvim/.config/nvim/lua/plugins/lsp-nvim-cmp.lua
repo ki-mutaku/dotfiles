@@ -48,12 +48,12 @@ return {
 						cmp.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert })
 					elseif vim.bo.filetype == "markdown" then
 					        local line = vim.api.nvim_get_current_line()
-					        if line:match("^%s*[%-%*%+]%s*$") or line:match("^%s*%d+%.%s*$") then
+					        if line:match("^%s*[%-%*%+]%s+") or line:match("^%s*%d+%.%s+") then
 					                local spaces = line:match("^(%s*)")
 					                if #spaces > 0 then
+					                        local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 					                        local to_remove = math.min(#spaces, 2)
 					                        vim.api.nvim_set_current_line(line:sub(to_remove + 1))
-					                        local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 					                        vim.api.nvim_win_set_cursor(0, { row, math.max(0, col - to_remove) })
 					                end
 					        else
