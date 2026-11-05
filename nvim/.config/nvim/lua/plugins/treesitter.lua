@@ -17,6 +17,8 @@ return {
 			"markdown",
 			"markdown_inline",
 			"rust",
+			"c",
+			"cpp",
 		}
 		pcall(function()
 			require("nvim-treesitter").install(parsers)

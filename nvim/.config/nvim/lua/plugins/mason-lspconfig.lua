@@ -5,7 +5,8 @@ return {
 			"pyright", -- Python
 			"ts_ls", -- TypeScript / JavaScript
 			"lua_ls", -- Lua
-      "ruby_lsp", -- Ruby
+			"ruby_lsp", -- Ruby
+			"clangd", --C / C++
 		},
 		automatic_installation = true,
 	},

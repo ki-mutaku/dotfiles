@@ -12,7 +12,7 @@ return {
 		})
 
 		-- 各種サーバーの設定 (必要に応じて追加)
-		local servers = { "pyright", "ts_ls", "lua_ls", "ruby_lsp" }
+		local servers = { "pyright", "ts_ls", "lua_ls", "ruby_lsp", "clangd" }
 
 		for _, lsp in ipairs(servers) do
 			vim.lsp.enable(lsp)
