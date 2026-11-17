@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# brew upgrade → Brewfile に dump → dotfiles に commit & push
+#
+# 使い方:
+#   brew-sync            # upgrade して Brewfile を更新し、commit & push
+#   brew-sync --no-push  # commit まで（push しない）
+set -euo pipefail
+
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
+BREWFILE_REL="brew/.config/brew/Brewfile"
+BREWFILE="$DOTFILES_DIR/$BREWFILE_REL"
+
+push=true
+case "${1:-}" in
+	--no-push) push=false ;;
+	"") ;;
+	*)
+		echo "usage: $(basename "$0") [--no-push]" >&2
+		exit 1
+		;;
+esac
+
+if [[ ! -f "$BREWFILE" ]]; then
+	echo "Brewfile が見つかりません: $BREWFILE" >&2
+	exit 1
+fi
+
+echo "==> brew update"
+brew update
+
+echo "==> brew upgrade"
+brew upgrade
+
+echo "==> brew bundle dump"
+brew bundle dump --force --file="$BREWFILE"
+
+cd "$DOTFILES_DIR"
+
+if git diff --quiet -- "$BREWFILE_REL"; then
+	echo "==> Brewfile に変更はありません"
+	exit 0
+fi
+
+git --no-pager diff --stat -- "$BREWFILE_REL"
+
+echo "==> git commit"
+# パスを指定するので、他にステージ済みの変更があっても Brewfile だけがコミットされる
+git commit -m "chore(brew): Brewfileを更新 ($(date +%Y-%m-%d))" -- "$BREWFILE_REL"
+
+if $push; then
+	echo "==> git push"
+	git push
+else
+	echo "==> push はスキップしました (--no-push)"
+fi
