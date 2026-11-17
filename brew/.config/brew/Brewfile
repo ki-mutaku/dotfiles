@@ -141,7 +141,7 @@ cask "discord"
 cask "font-hack-nerd-font"
 cask "font-noto-sans-cjk"
 # 2D and 3D game engine
-cask "godot"
+cask "godot", pin: true
 # Graphically shows disk usage within a file system
 cask "grandperspective"
 # Desktop automation application
