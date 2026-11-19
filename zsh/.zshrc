@@ -12,6 +12,9 @@ export PATH=$GOPATH/bin:$PATH
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+alias python="python3"
+alias pip="pip3"
+alias grep="ggrep"
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh_history     # 履歴を保存するファイル
@@ -123,6 +126,9 @@ esac
 # pnpm enid
 export PATH="$HOME/bin:$PATH"
 
+# Added by Antigravity
+export PATH="/Users/tutaya/.antigravity/antigravity/bin:$PATH"
+
 # コマンドが存在するか確認する関数
 _has() {
   type "$1" > /dev/null 2>&1
@@ -174,6 +180,18 @@ export PATH="/Users/tutaya/.antigravity-ide/antigravity-ide/bin:$PATH"
 
 # Pi
 export PATH="/Users/tutaya/.nodebrew/node/v25.8.2/bin:$PATH"
+
+
+# pnpm
+export PNPM_HOME='/Users/tutaya/Library/pnpm'
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+# Unity CLI
+. "/Users/tutaya/.unity/env"
 
 # opencode
 export PATH=/Users/tutaya/.opencode/bin:$PATH

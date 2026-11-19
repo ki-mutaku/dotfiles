@@ -43,6 +43,7 @@ stow zsh
 stow nvim
 stow wezterm
 stow sheldon
+stow starship
 stow hammerspoon
 ```
 
