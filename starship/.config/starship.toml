@@ -9,8 +9,8 @@ $git_status\
 """
 
 right_format = """
-$symbol\
-$pyenv_version_name\
+$python\
+${custom.uv_venv}\
 $cmd_duration\
 $username\
 ✨
@@ -83,5 +83,41 @@ vimcmd_symbol = '[V](bold green) '
 # ~/.config/starship.toml
 
 [python]
-symbol = '👾 '
-pyenv_version_name = true
+symbol = '󰌠 ' # nf-md-language_python
+style = 'fg:#7aa2f7'
+# activateしたときだけ表示する(ファイル検出は下の[custom.uv_venv]が担当するので無効化)
+detect_extensions = []
+detect_files = []
+detect_folders = []
+format = '[${symbol}(${version} )(\($virtualenv\) )]($style)'
+
+# activateしない運用(uv run)向けのPython表示
+#   .venvが現在地か親にある -> その環境のバージョンと名前 (例: v3.12 (project))
+#   .venvが無くPythonのファイルがある -> システムのpython3のバージョン (例: v3.15.2)
+#   activate済み -> 何も出さない([python]が表示する)
+[custom.uv_venv]
+shell = ["sh"]
+when = true
+command = '''
+[ -n "$VIRTUAL_ENV" ] && exit 0
+d=$PWD
+while [ "$d" != "/" ]; do
+  f="$d/.venv/pyvenv.cfg"
+  if [ -f "$f" ]; then
+    v=$(sed -n 's/^version_info = //p' "$f")
+    n=$(sed -n 's/^prompt = //p' "$f")
+    echo "v$v (${n:-${d##*/}})"
+    exit 0
+  fi
+  d=$(dirname "$d")
+done
+set -- *.py pyproject.toml requirements.txt .python-version setup.py Pipfile
+for x in "$@"; do
+  if [ -e "$x" ]; then
+    v=$(python3 --version 2>/dev/null | sed 's/^Python //')
+    [ -n "$v" ] && echo "v$v"
+    exit 0
+  fi
+done
+'''
+format = '([󰌠 $output ](fg:#7aa2f7))'
