@@ -1,7 +1,5 @@
 tap "135yshr/tap"
 tap "can1357/tap"
-tap "kanriapp/cask"
-tap "tomohiro-owada/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
@@ -94,10 +92,6 @@ brew "peco"
 brew "perl"
 # Password generator
 brew "pwgen"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
 # Generic machine emulator and virtualizer
 brew "qemu"
 # Powerful, clean, object-oriented scripting language
