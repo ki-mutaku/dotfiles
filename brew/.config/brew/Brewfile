@@ -1,5 +1,7 @@
 tap "135yshr/tap"
 tap "can1357/tap"
+tap "dominion525/tap"
+tap "steipete/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
@@ -130,6 +132,12 @@ brew "135yshr/tap/md2pdf", trusted: true
 brew "can1357/tap/omp", trusted: true
 # 3D creation suite
 cask "blender"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Switch input sources with the left and right Command keys
+cask "dominion525/tap/cmd-eikana", trusted: true
+# Menu bar usage monitor for Codex and Claude
+cask "steipete/tap/codexbar", trusted: true
 # Voice and text chat software
 cask "discord"
 cask "font-hack-nerd-font"
@@ -216,8 +224,11 @@ go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
 go "github.com/rakyll/hey"
 go "honnef.co/go/tools/cmd/staticcheck"
 cargo "cargo-generate"
+uv "aclogin"
+uv "online-judge-tools", with: ["setuptools"]
 uv "trafilatura"
 npm "@earendil-works/pi-coding-agent"
 npm "@mermaid-js/mermaid-cli"
+npm "atcoder-cli"
 npm "cz-git"
 npm "czg"
