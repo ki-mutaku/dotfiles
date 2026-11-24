@@ -96,8 +96,6 @@ brew "perl"
 brew "pwgen"
 # Generic machine emulator and virtualizer
 brew "qemu"
-# Powerful, clean, object-oriented scripting language
-brew "ruby", link: false
 # Fast, configurable, shell plugin manager
 brew "sheldon"
 # Prints a steam locomotive if you type sl instead of ls
@@ -164,6 +162,8 @@ cask "utm"
 cask "visual-studio-code"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm@nightly"
+# Network protocol analyzer
+cask "wireshark-app"
 vscode "anthropic.claude-code"
 vscode "bradlc.vscode-tailwindcss"
 vscode "charliermarsh.ruff"
