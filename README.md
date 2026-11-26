@@ -45,6 +45,7 @@ stow wezterm
 stow sheldon
 stow starship
 stow hammerspoon
+stow mise
 ```
 
 > **Note**: もし既存の設定ファイルが存在しコンフリクトする場合は、事前に既存のファイルをバックアップまたは削除してから `stow` コマンドを実行してください。
