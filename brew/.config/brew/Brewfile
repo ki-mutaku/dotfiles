@@ -50,8 +50,6 @@ brew "git-delta"
 brew "git-lfs"
 # Command-driven, interactive function plotting
 brew "gnuplot"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
 # GNU grep, egrep and fgrep
